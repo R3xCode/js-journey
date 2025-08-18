@@ -2,9 +2,11 @@
 “We learn by practice.” — Aristotle
 
 Journey with JS 🚀
+
 A personal adventure through JavaScript — from fundamentals to modern concepts. This is where I’m keeping track of my learning in JavaScript. It’s not meant to be perfect — just a collection of code, small projects, and notes as I move step by step from basics to advanced stuff.
 
 🌱Why this repo?
+
 I wanted a place to dump everything I try out while learning. Sometimes it’ll be clean projects, other times just rough experiments. Either way, it shows how I’m growing with JS.
 
 🧩What’s inside?
