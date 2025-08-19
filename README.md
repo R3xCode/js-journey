@@ -18,7 +18,8 @@ I wanted a place to dump everything I try out while learning. Sometimes it’ll 
 📚Resources I keep going back to:
 1) MDN Docs.
 2) Hitesh Choudhary JavaScript Playlist.
-3) AI Platforms.
+3) ECMAScript® 2023.
+4) AI Platforms.
 
 ✨Final note:
 
