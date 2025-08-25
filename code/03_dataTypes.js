@@ -1,6 +1,6 @@
 "use strict";
 /*
-It enforce strict mode for better error checking and cleaner code which is used in modern JavaScript and syntax that includes ES6+ features like let, const, and arrow functions.It helps to avoid common pitfalls and makes debugging easier.Also, it is not mandatory but recommended to use in modern JavaScript development.
+It enforce strict mode for better error checking and cleaner code which is used in modern JavaScript and syntax that includes ES6+ features like let, const and arrow functions.It helps to avoid common pitfalls and makes debugging easier.Also, it is not mandatory but recommended to use in modern JavaScript development.
 */
 
 /*
@@ -10,19 +10,18 @@ It enforce strict mode for better error checking and cleaner code which is used 
 
 -> prompt() we are not using prompt in modern JavaScript development.
 
-These functions are part of the browser's window object and are used for user interaction in web applications. However, they are not commonly used in modern JavaScript development due to their blocking nature and poor user experience.
-In node.js, we don't use these functions as they are part of the browser's window object. Instead, we use console.log() for output and other methods for input handling, such as using HTML forms or libraries like readline in Node.js.
+These functions are part of the browser's window object and are used for user interaction in web applications. However, they are not commonly used in modern JavaScript development due to their blocking nature and poor user experience. In node.js, we don't use these functions as they are part of the browser's window object. Instead, we use console.log() for output and other methods for input handling, such as using HTML forms or libraries like readline in Node.js.
 */
 
-let firstName = "Naba";
-let age = 18;
-let isadult = true;
-let hobbies = ["reading", "coding", "gaming"];
+let firstName = "Naba"; // string
+let age = 18; // number
+let isadult = true; // boolean
+let hobbies = ["reading", "coding", "gaming"]; // array (which is of type object)
 let address = {
   city: "Guwahati",
   state: "Assam",
   country: "India",
-};
+}; // object
 
 /*
 1) Primitive Data Types:
@@ -57,7 +56,7 @@ let notAssigned;
 e.g.
 let uniqueId = Symbol('id');
 
-2) Non-Primitive (Reference) Data Types
+2) Non-Primitive (Reference) Data Types:
 
 Non-primitive data types are mutable and can hold collections of values or more complex entities. They include object, array, function, date, regexp, map, set, weakmap, and weakset.
 
@@ -106,42 +105,41 @@ function log(...args) {
   console.log(); // empty line
 }
 
-log("Data Types in JavaScript:");
+log("Data Types in JavaScript:"); // Data Types in JavaScript:
+log(typeof firstName); // string
+log(typeof age); // number
+log(typeof isadult); // boolean
+log(typeof hobbies); // object (array is of type object)
+log(typeof address); // object
 
-log(typeof firstName); // string.
-log(typeof age); // number.
-log(typeof isadult); // boolean.
-log(typeof hobbies); // object (array is of type object).
-log(typeof address); // object.
-
-log(typeof undefined); // undefined.
-log(typeof null); // object.
+log(typeof undefined); // undefined
+log(typeof null); // object
 
 let bigIntNum = 9007199254740991n;
-log(typeof bigIntNum); // bigint.
+log(typeof bigIntNum); // bigint
 
 let uniqueId = Symbol("id");
-log(typeof uniqueId); // symbol.
+log(typeof uniqueId); // symbol
 
 function greet() {
   return "Hello!";
 }
-log(typeof greet); // function.
+log(typeof greet); // function
 
 let now = new Date();
-log(typeof now); // object.
+log(typeof now); // object
 
 let regex = /abc/;
-log(typeof regex); // object.
+log(typeof regex); // object
 
 let map = new Map();
-log(typeof map); // object.
+log(typeof map); // object
 
 let set = new Set();
-log(typeof set); // object.
+log(typeof set); // object
 
 let weakMap = new WeakMap();
-log(typeof weakMap); // object.
+log(typeof weakMap); // object
 
 let weakSet = new WeakSet();
-log(typeof weakSet); // object.
+log(typeof weakSet); // object
