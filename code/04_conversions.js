@@ -1,3 +1,60 @@
+/*
+ Summary of Type Conversions in JavaScript:
+
+ Two kinds:
+ -> Explicit: you call Number(x), String(x), Boolean(x) (or use constructors).
+ -> Implicit: conversions happen by operators/contexts (e.g. +, -, ==, template strings).
+
+ ToNumber rules (common cases):
+ -> ''       -> 0
+ -> '123'    -> 123
+ -> '12.3'   -> 12.3
+ -> 'foo'    -> NaN
+ -> '  7 '   -> 7   (whitespace trimmed)
+ -> null     -> 0
+ -> undefined-> NaN
+ -> true     -> 1, false -> 0
+ -> []       -> 0   (empty array -> '' -> 0), ['5'] -> 5
+ -> {}       -> NaN (plain object tries valueOf/toString -> usually '[object Object NaN)
+ -> Symbol   -> throws or cannot be meaningfully converted to number
+
+ ToString rules:
+ -> Numbers, booleans -> usual text form ('55', 'true', 'false')
+ -> null -> 'null', undefined -> 'undefined'
+ -> Arrays -> elements joined (e.g. [1] -> '1', [] -> '')
+ -> Objects -> toString() (default '[object Object]') or implement custom toString()
+ -> Use JSON.stringify(obj) for readable object JSON representation
+
+ ToBoolean (truthiness):
+ -> Falsy values: false, 0, -0, 0n, '', null, undefined, NaN
+ -> Everything else is truthy (including '0', 'false' (string), [], {} )
+
+ Common pitfalls:
+ -> typeof null === 'object'  (historical quirk)
+ -> + with a string does concatenation: '5' + 1 === '51'
+ -> Use unary + to force numeric conversion: +'42' === 42
+ -> == does type-coercing comparison (can be surprising); prefer === for strict equality
+ -> isNaN(x) coerces to number first; use Number.isNaN(x) to check NaN reliably
+
+ Useful helpers:
+ -> Number(x) / String(x) / Boolean(x) for explicit conversion
+ -> Unary + (+'123') converts to number
+ -> !!x converts value to boolean (double negation)
+ -> Number.isNaN(value) instead of global isNaN
+
+ Short commented examples (no runtime output here, examples for reference):
+ +''           // -> 0         (unary + on empty string)
+ +'  7 '       // -> 7         (whitespace trimmed)
+ '5' + 1       // -> '51'      (string concatenation)
+ '5' - 1       // -> 4         (numeric subtraction forces number conversion)
+ !![]          // -> true      (array is truthy)
+ Number('foo') // -> NaN
+ String(null)  // -> 'null'
+ Boolean('')   // -> false
+
+ Tip:
+ -> When mixing values, be deliberate: convert operands explicitly (Number/ String / Boolean) to avoid implicit coercion surprises.
+*/
 let sample1 = "100"; // string
 console.log(typeof sample1); // string
 console.log(sample1); // "100"
@@ -132,61 +189,3 @@ let valueInString4 = String(sample15); // conversion from undefined to string
 console.log(typeof valueInString4); // string
 console.log(valueInString4); // "undefined"
 console.log();
-
-/*
-Summary of Type Conversions in JavaScript:
-
- Two kinds:
- -> Explicit: you call Number(x), String(x), Boolean(x) (or use constructors).
- -> Implicit: conversions happen by operators/contexts (e.g. +, -, ==, template strings).
-
- ToNumber rules (common cases):
- -> ''       -> 0
- -> '123'    -> 123
- -> '12.3'   -> 12.3
- -> 'foo'    -> NaN
- -> '  7 '   -> 7   (whitespace trimmed)
- -> null     -> 0
- -> undefined-> NaN
- -> true     -> 1, false -> 0
- -> []       -> 0   (empty array -> '' -> 0), ['5'] -> 5
- -> {}       -> NaN (plain object tries valueOf/toString -> usually '[object Object NaN)
- -> Symbol   -> throws or cannot be meaningfully converted to number
-
- ToString rules:
- -> Numbers, booleans -> usual text form ('55', 'true', 'false')
- -> null -> 'null', undefined -> 'undefined'
- -> Arrays -> elements joined (e.g. [1] -> '1', [] -> '')
- -> Objects -> toString() (default '[object Object]') or implement custom toString()
- -> Use JSON.stringify(obj) for readable object JSON representation
-
- ToBoolean (truthiness):
- -> Falsy values: false, 0, -0, 0n, '', null, undefined, NaN
- -> Everything else is truthy (including '0', 'false' (string), [], {} )
-
- Common pitfalls:
- -> typeof null === 'object'  (historical quirk)
- -> + with a string does concatenation: '5' + 1 === '51'
- -> Use unary + to force numeric conversion: +'42' === 42
- -> == does type-coercing comparison (can be surprising); prefer === for strict equality
- -> isNaN(x) coerces to number first; use Number.isNaN(x) to check NaN reliably
-
- Useful helpers:
- -> Number(x) / String(x) / Boolean(x) for explicit conversion
- -> Unary + (+'123') converts to number
- -> !!x converts value to boolean (double negation)
- -> Number.isNaN(value) instead of global isNaN
-
- Short commented examples (no runtime output here, examples for reference):
- +''           // -> 0         (unary + on empty string)
- +'  7 '       // -> 7         (whitespace trimmed)
- '5' + 1       // -> '51'      (string concatenation)
- '5' - 1       // -> 4         (numeric subtraction forces number conversion)
- !![]          // -> true      (array is truthy)
- Number('foo') // -> NaN
- String(null)  // -> 'null'
- Boolean('')   // -> false
-
- Tip:
- -> When mixing values, be deliberate: convert operands explicitly (Number/ String / Boolean) to avoid implicit coercion surprises.
-*/
